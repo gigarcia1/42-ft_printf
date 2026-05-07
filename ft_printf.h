@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gigarcia <gigarcia@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/07 21:22:09 by gigarcia          #+#    #+#             */
-/*   Updated: 2026/05/07 21:22:34 by gigarcia         ###   ########.fr       */
+/*   Created: 2026/05/07 21:22:48 by gigarcia          #+#    #+#             */
+/*   Updated: 2026/05/07 21:24:36 by gigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
-#include <stdlib.h>
+#ifndef FT_PRINTFH
+# define
 
-void parse_fmt(char fmt, va_list ap)
-{
-	if (fmt == '%')
-		ft_putchar('%');
-	else if (fmt == 's')
-		ft_putstr();
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-int ft_printf(char *fmt, ...)
-{
-	va_list ap;
-	va_start(ap, fmt);
-	if (!fmt)
-		return (-1);
-	while (*fmt)
-	{
-		if (*fmt == '%')
-			parse_fmt(*(fmt + 1));
-		fmt++;
-	}
-	va_end(ap);
-}
+int	ft_printf(char *fmt, ...);
+
+#endif
