@@ -33,11 +33,14 @@ The implementation handles formatted printf without the need to rely on `printf`
 
 ```text
 ./
+├── Makefile
+├── README.md
 ├── ft_printf.c
-├── ft_printf.h
-├── ft_printf_utils_nbr.c
-├── ft_printf_utils_text.c
-└── Makefile
+├── includes/
+│   └── ft_printf.h
+└── utils/
+    ├── ft_printf_utils_nbr.c
+    └── ft_printf_utils_text.c
 ```
 
 ## Technical Knowledge
