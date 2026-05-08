@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_utils_text.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gigarcia <gigarcia@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/08 22:52:42 by gigarcia          #+#    #+#             */
-/*   Updated: 2026/05/08 22:57:08 by gigarcia         ###   ########.fr       */
+/*   Created: 2026/05/08 21:56:16 by gigarcia          #+#    #+#             */
+/*   Updated: 2026/05/08 22:51:42 by gigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
-#include <stdio.h>
+void	ft_putchar(char c, int *written)
+{
+	*written += write(1, &c, 1);
+}
+//proteger putstr de un NULL
+void	ft_putstr(char *str, int *written)
+{
+	if (!str)
+		str = "(null)";
+	while (*str)
+	{
+		ft_putchar(*str, written);
+		str++;
+	}
+}
 
-void    print_nbr(unsigned long long n, unsigned int base, int *w, char h_case);
-void    print_int(int n, int *written);
-void    print_ptr(unsigned long long ptr, int *written);
-void    ft_putchar(char c, int *written);  
-void    ft_putstr(char *str, int *written);         
-
-
-#endif

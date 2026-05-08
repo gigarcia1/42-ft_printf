@@ -4,7 +4,9 @@ NAME = libftprintf.a
 RM = rm -rf
 AR = ar -rsc
 
-SRCS = -archivooos :P-	
+SRCS =	ft_printf.c \
+		ft_printf_utils_nbr.c \
+		ft_printf_utils_text.:wqc \
 
 OBJS = $(SRCS:.c=.o)
 
