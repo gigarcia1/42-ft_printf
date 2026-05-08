@@ -24,6 +24,18 @@ void	ft_putstr(char *str, int *written)
 	*written += write(1, str, ft_strlen(str));
 }
 
+void	ft_putnbr_base(int n, int base, int *written)
+{
+	if (n >= base)
+	{
+		ft_putnbr_base(n / base, base, written);
+	}
+	if (n >= 0 && n <= 9)
+		ft_puchar(n % base + '0', written);
+	else if (n > 9 && n < 16)
+		ft_putchar(((n % base) - 10) + 'a', written);
+}
+
 void ft_putnbr(long nbr, int *written)
 {
 	if (nbr < 0)
@@ -34,20 +46,6 @@ void ft_putnbr(long nbr, int *written)
 	if (nbr >= 10)
 		ft_putnbr(nbr / 10, written);
 	ft_putchar((nbr % 10) + '0', written);
-}
-
-void print_hex(int n, int *written, int flag)
-{
-	int		i;
-	int		res;
-	
-	while (str[i])
-	{
-
-		if (flag == 0)
-		{
-		}
-	}
 }
 
 void parse_fmt(char	c, va_list ap, int *written)
