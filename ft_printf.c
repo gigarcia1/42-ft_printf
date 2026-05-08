@@ -6,15 +6,13 @@
 /*   By: gigarcia <gigarcia@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 21:55:56 by gigarcia          #+#    #+#             */
-/*   Updated: 2026/05/08 23:20:20 by gigarcia         ###   ########.fr       */
+/*   Updated: 2026/05/09 00:58:39 by gigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-//pasamos va_list como un puntero, si lo pasamos normal, en algunas arquitecturas
-	//el marcador no avanza y se queda atascado en el primer argumento
-static void parse_fmt(char	c, va_list *ap, int *written)
+static void	parse_fmt(char c, va_list *ap, int *written)
 {
 	if (c == '%')
 		ft_putchar('%', written);
@@ -31,11 +29,12 @@ static void parse_fmt(char	c, va_list *ap, int *written)
 	else if (c == 'X')
 		print_nbr(va_arg(*ap, unsigned int), 16, written, 'A');
 	else if (c == 'p')
-		print_ptr(va_arg(*ap, unsigned long), written); //AYUDA IMPORTANTE -	CASTEAR EL VA_ARG COMO UNSIGNED LONG PARA EVITAR COMPORTAMIENTOS INDEFINIDOS
-	//Check for NULL dereferencing. If char *ptr = NULL and ft_printf("%p", &ptr), the return shouldn't be NULL, but NIL (when trying to dereference the memory address of a NULL)
+		print_ptr(va_arg(*ap, unsigned long), written); //AYUDA IMPORTANTE
+			//CASTEAR EL VA_ARG COMO UNSIGNED LONG PARA EVITAR COMPORTAMIENTOS 
+			//INDEFINIDOS
 }
 
-int ft_printf(const char *fmt, ...)
+int	ft_printf(const char *fmt, ...)
 {
 	int		written;
 	va_list	ap;
