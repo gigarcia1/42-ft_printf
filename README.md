@@ -53,13 +53,13 @@ The project heavily relies on the `<stdarg.h>` library:
 
 ## Technical Challenges
 Some important technical difficulties I encountered during the project include:
-• Correctly advancing va_list (I had to use a pointer for its return to avoid losing track of it and correctly advancing in the arguments)
-• Managing edge cases (NULL, 0, negative numbers)
-• Recursive number printing
-• Preventing segmentation faults
-• Handling pointer formatting
-• Mimicking the exact behavior of the original printf
-• Keeping track of the total printed length
+- Correctly advancing va_list (I had to use a pointer for its return to avoid losing track of it and correctly advancing in the arguments)
+- Managing edge cases (NULL, 0, negative numbers)
+- Recursive number printing
+- Preventing segmentation faults
+- Handling pointer formatting
+- Mimicking the exact behavior of the original printf
+- Keeping track of the total printed length
 
 # Instructions 
 
