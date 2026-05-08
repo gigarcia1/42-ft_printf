@@ -6,7 +6,7 @@
 /*   By: gigarcia <gigarcia@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/07 21:22:09 by gigarcia          #+#    #+#             */
-/*   Updated: 2026/05/07 21:37:37 by gigarcia         ###   ########.fr       */
+/*   Updated: 2026/05/08 18:05:12 by gigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//Implementar strlen o incluir la libft
+//Proteger el strlen para no dereferenciar un NULL si se le pasa como parámetro
+  //de un char * (identificador de formato %s) 
 void	ft_putchar(char c, int *written)
 {
 	*written += write(1, &c, 1);
@@ -31,7 +34,7 @@ void	ft_putnbr_base(int n, int base, int *written)
 		ft_putnbr_base(n / base, base, written);
 	}
 	if (n >= 0 && n <= 9)
-		ft_puchar(n % base + '0', written);
+		ft_putchar(n % base + '0', written);
 	else if (n > 9 && n < 16)
 		ft_putchar(((n % base) - 10) + 'a', written);
 }
@@ -51,28 +54,29 @@ void ft_putnbr(long nbr, int *written)
 void parse_fmt(char	c, va_list ap, int *written)
 {
 	if (c == '%')
-		ft_putchar('%', &written);
+		ft_putchar('%', written);
 	else if (c == 's')
-		ft_putstr(va_arg(ap, char *), &written);
+		ft_putstr(va_arg(ap, char *), written);
 	else if (c == 'c')
-		ft_putchar((char)va_arg(ap, int), &written);
+		ft_putchar((char)va_arg(ap, int), written);
 	else if (c == 'i' || c == 'd')
-		ft_putnbr(va_arg(ap, int), &written);
+		ft_putnbr(va_arg(ap, int), written);
 	else if (c == 'x')
-		print_hex(va_arg(ap, char *), &written, 0);
+		print_hex(va_arg(ap, char *), written, 0);
 	else if (c == 'X')
-		print_hex(va_arg(ap, char *), &written, 1);
+		print_hex(va_arg(ap, char *), written, 1);
 	else if (c == 'u')
-		ft_putnbr((unsigned int)va_arg(ap, int), &written);
+		ft_putnbr((unsigned int)va_arg(ap, int), written);
 	else if (c == 'p')
-		print_memory((unsigned char)va_arg(ap, int), &written);
+		print_memory((unsigned char)va_arg(ap, int), written);
 	//Check for NULL dereferencing. If char *ptr = NULL and ft_printf("%p", &ptr), the return shouldn't be NULL, but NIL (when trying to dereference the memory address of a NULL)
 }
 
 int ft_printf(const char *fmt, ...)
 {
 	int		written;
-	va_list ap;
+	va_list	ap;
+
 	va_start(ap, fmt);
 	if (!fmt)
 		return (-1);
@@ -84,4 +88,5 @@ int ft_printf(const char *fmt, ...)
 		fmt++;
 	}
 	va_end(ap);
+	return (written);
 }
