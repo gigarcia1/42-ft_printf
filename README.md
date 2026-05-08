@@ -33,11 +33,14 @@ The implementation handles formatted printf without the need to rely on `printf`
 
 ```text
 ./
+├── Makefile
+├── README.md
 ├── ft_printf.c
-├── ft_printf.h
-├── ft_printf_utils_nbr.c
-├── ft_printf_utils_text.c
-└── Makefile
+├── includes/
+│   └── ft_printf.h
+└── utils/
+    ├── ft_printf_utils_nbr.c
+    └── ft_printf_utils_text.c
 ```
 
 ## Technical Knowledge
@@ -50,13 +53,13 @@ The project heavily relies on the `<stdarg.h>` library:
 
 ## Technical Challenges
 Some important technical difficulties I encountered during the project include:
-• Correctly advancing va_list (I had to use a pointer for its return to avoid losing track of it and correctly advancing in the arguments)
-• Managing edge cases (NULL, 0, negative numbers)
-• Recursive number printing
-• Preventing segmentation faults
-• Handling pointer formatting
-• Mimicking the exact behavior of the original printf
-• Keeping track of the total printed length
+- Correctly advancing va_list (I had to use a pointer for its return to avoid losing track of it and correctly advancing in the arguments)
+- Managing edge cases (NULL, 0, negative numbers)
+- Recursive number printing
+- Preventing segmentation faults
+- Handling pointer formatting
+- Mimicking the exact behavior of the original printf
+- Keeping track of the total printed length
 
 # Instructions 
 
