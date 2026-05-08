@@ -74,23 +74,23 @@ Recompile Everything:
 
 # Resources
 ## Official Documentation
-• The Open Group printf specification
+- The Open Group printf specification
 https://pubs.opengroup.org/onlinepubs/9699919799/functions/printf.html
-• GNU libc documentation
+- GNU libc documentation
 https://www.gnu.org/software/libc/manual/
-• C Variadic Functions (stdarg.h)
+- C Variadic Functions (stdarg.h)
 https://en.cppreference.com/w/c/variadic
-• write() system call
+- write() system call
 https://man7.org/linux/man-pages/man2/write.2.html
 
 ## AI Usage
 Artificial intelligence tools were used as learning assistance during the development of this project. And it was used for:
 
-• Understanding variadic functions
-• Clarifying undefined behavior cases
-• Reviewing parsing logic
-• Explaining architecture-dependent behavior of va_list
-• Learning edge-case handling
-• README structure and documentation formatting
+- Understanding variadic functions
+- Clarifying undefined behavior cases
+- Reviewing parsing logic
+- Explaining architecture-dependent behavior of va_list
+- Learning edge-case handling
+- README structure and documentation formatting
 
 AI was NOT used to fully generate the project implementation. The code logic, debugging, testing, and final implementation decisions were completed manually.
