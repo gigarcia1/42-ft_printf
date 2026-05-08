@@ -6,7 +6,7 @@
 /*   By: gigarcia <gigarcia@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/08 21:55:56 by gigarcia          #+#    #+#             */
-/*   Updated: 2026/05/09 00:58:39 by gigarcia         ###   ########.fr       */
+/*   Updated: 2026/05/09 01:30:51 by gigarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,7 @@ static void	parse_fmt(char c, va_list *ap, int *written)
 	else if (c == 'X')
 		print_nbr(va_arg(*ap, unsigned int), 16, written, 'A');
 	else if (c == 'p')
-		print_ptr(va_arg(*ap, unsigned long), written); //AYUDA IMPORTANTE
-			//CASTEAR EL VA_ARG COMO UNSIGNED LONG PARA EVITAR COMPORTAMIENTOS 
-			//INDEFINIDOS
+		print_ptr((unsigned long long)va_arg(*ap, void *), written);
 }
 
 int	ft_printf(const char *fmt, ...)
@@ -55,12 +53,3 @@ int	ft_printf(const char *fmt, ...)
 	va_end(ap);
 	return (written);
 }
-
-/*int main()
-{
-	int i = 784596;
-
-		ft_printf("hola hola %i hola hola\n\n", i);
-		printf("hola hola %i hola hola\n\n", i);
-}
-*/
